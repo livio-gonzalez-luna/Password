@@ -1,61 +1,47 @@
+import tkinter as tk
 import re
-from tkinter import *
 
-root = Tk()
-root.geometry("400x200")
-root.title("Vérification du mot de passe")
-
-#############
-# FONCTIONS
-#############
-
-# Function to check if the password is valid
-def check_password(password):
-    error_message = []
+def check_password_strength(password):
+    error_message = ""
     if len(password) < 8:
-        error_message.append("Il doit contenir au moins 8 caractères.")
-    if not re.search(r"[a-z]", password):
-        error_message.append("Il doit contenir au moins une lettre minuscule.")
-    if not re.search(r"[A-Z]", password):
-        error_message.append("Il doit contenir au moins une lettre majuscule.")
-    if not re.search(r"[0-9]", password):
-        error_message.append("Il doit contenir au moins un chiffre.")
-    if not re.search(r"[!@#\$%\^&\*]", password):
-        error_message.append("Il doit contenir au moins un caractère spécial (!, @, #, $, %, ^, &, *).")
+        error_message += "• Must contain at least 8 characters.\n"
+    if not re.search("[a-z]", password):
+        error_message += "• Must contain at least one lowercase letter.\n"
+    if not re.search("[A-Z]", password):
+        error_message += "• Must contain at least one uppercase letter.\n"
+    if not re.search("[0-9]", password):
+        error_message += "• Must contain at least one number.\n"
+    if not re.search("[!@#$%^&*]", password):
+        error_message += "• Must contain at least one special character (!, @, #, $, %, ^, &, *).\n"
+    return error_message
 
-    if error_message == []:
-        return (True, "")
-    else:
-        return (False, "\n".join(error_message))
-
-# Function to register the password
-def register():
+def check_password():
     password = password_entry.get()
-    is_valid, error_message = check_password(password)
-    if is_valid:
-        message_label.config(text="Mot de passe valide ! Merci.",fg = "green")
+    error_message = check_password_strength(password)
+    if not error_message:
+        message_label.config(text="Password accepted. Welcome, {}.".format(name_entry.get()))
     else:
-        message_label.config(text=f"Le mot de passe choisi ne répond pas aux exigences de sécurité: \n{error_message} Veuillez choisir un nouveau mot de passe.",fg = "red")
+        message_label.config(text="Your password does not meet the following security requirements:\n{}".format(error_message))
 
-#############
-# GUI
-#############
+root = tk.Tk()
+root.title("Password Checker")
 
-# Title
-password_label = Label(root, text="Choose a Password")
-password_label.pack()
+name_label = tk.Label(root, text="Name:")
+name_label.grid(row=0, column=0)
 
-# Password entry
-password_entry = Entry(root)
-password_entry.pack()
+name_entry = tk.Entry(root)
+name_entry.grid(row=0, column=1)
 
-# Submit button
-submit_button = Button(root, text="Submit Password", command=register)
-submit_button.pack()
+password_label = tk.Label(root, text="Password:")
+password_label.grid(row=1, column=0)
 
-# Message label
-message_label = Label(root, text="")
-message_label.pack()
+password_entry = tk.Entry(root, show="*")
+password_entry.grid(row=1, column=1)
 
+submit_button = tk.Button(root, text="Submit", command=check_password)
+submit_button.grid(row=2, column=0, columnspan=2, pady=10)
+
+message_label = tk.Label(root)
+message_label.grid(row=3, column=0, columnspan=2)
 
 root.mainloop()
