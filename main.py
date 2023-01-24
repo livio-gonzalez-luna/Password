@@ -1,38 +1,48 @@
 from tkinter import *
 import re
+import hashlib
 
-
+##########
+# INTERFACE
+##########
 
 root = Tk()
 root.title("Password Checker")
 root.geometry("400x400")
 
+##########
+# FUNCTIONS
+##########
+
 # Check if password is strong enough
 def check_password_strength(password):
     if len(password) < 8:
-        return False
+        return "Password must be at least 8 characters."
     if not re.search("[a-z]", password):
-        return False
+        return "Password must contain at least one lowercase letter."
     if not re.search("[A-Z]", password):
-        return False
+        return "Password must contain at least one uppercase letter."
     if not re.search("[0-9]", password):
-        return False
+        return "Password must contain at least one number."
     if not re.search("[!@#$%^&*]", password):
-        return False
-    return True
+        return "Password must contain at least one special character (!, @, #, $, %, ^, &, *)."
+    return "Password is valid."
 
 # Check if password is correct
 def check_password():
     name = name_entry.get()
     password = password_entry.get()
-    if check_password_strength(password):
+    message = check_password_strength(password)
+    if message == "Password is valid.":
         message = "Welcome " + name + "!"
         label.config(text=message, fg="green")
     else:
-        message = "Invalid password. Please try again."
         label.config(text=message, fg="red")
         password_entry.delete(0, END)
 
+##########
+# GUI
+##########
 
 name_label = Label(root, text="Name:")
 name_label.grid(row=0, column=0, pady=10)
