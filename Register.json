@@ -1,0 +1,67 @@
+{
+    "Julien": "DVEUIDUEIDIUEDED",
+    "Max": "DEKHVDEIUVUEIDVUEDVEVDEVIUDEUIUEID",
+    "Bruh": "VDIUZVUZBJKDBJSZKBDJKBKJSDBKDBSKJBL",
+    "livio": {
+        "Passwords": [
+            "1A2Z!eee",
+            "4R5T!fff",
+            "3E4R!ccc",
+            "6543!Reee"
+        ],
+        "Hashes": [
+            "eeb708f0770706620641dbdbe4140d375d340584f884638c08c13a070ef5339a",
+            "5f6284cac493855e09db4670cf7c61e19fd2da31185b0e00675cff053c67cdc8",
+            "898cc57c6226646bbf351a3aa1c8dcafba0d91c982b71573d9e371a05ebe431f",
+            "1b431106b945f476d70b4d7c4110b051c1123c9e59bca723f8e4ab754729b976"
+        ]
+    },
+    "yoyo": {
+        "Passwords": [
+            "1A2Z!eee"
+        ],
+        "Hashes": [
+            "eeb708f0770706620641dbdbe4140d375d340584f884638c08c13a070ef5339a"
+        ]
+    },
+    "Robert": {
+        "Passwords": [
+            "3E4R!rrr"
+        ],
+        "Hashes": [
+            "711ec90c04625c60786ee65a9aa37895c8fc8e96f7d7487cef0f6cfef6165272"
+        ]
+    },
+    "Pierre": {
+        "Passwords": [
+            "6Y7U!ggg"
+        ],
+        "Hashes": [
+            "c9fb1b0849ba537eebe11501c34567a21fafa41741d2a851e0e99ca029cb8ca4"
+        ]
+    },
+    "Peeter": {
+        "Passwords": [
+            "4R5T!vvv"
+        ],
+        "Hashes": [
+            "bc80d0e0bde54625189499cc2c5369828c5ec8b64aab9f913465d07e3a96af8d"
+        ]
+    },
+    "Robie": {
+        "Passwords": [
+            "5T6Y!fff"
+        ],
+        "Hashes": [
+            "bbe9ebd0b5a0b0d362994758defcbaff4d952ffecd8b5146d72a9486a11ebdfb"
+        ]
+    },
+    "Mumu": {
+        "Passwords": [
+            "7U8I!fff"
+        ],
+        "Hashes": [
+            "f23c0bf1c11f9124e270bc03c1a605aa2b56ea11c60baed3744c78b40d79f04d"
+        ]
+    }
+}
